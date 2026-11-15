@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import {
   apiRequest,
@@ -115,7 +115,7 @@ const DEFAULT_LIKERT_QUESTIONS = [
   },
 ];
 
-export default function ExperimentStudioPage() {
+function ExperimentStudioContent() {
   const params = useParams<{ id: string }>();
   const router = useRouter();
   const expId = params.id;
@@ -708,5 +708,12 @@ export default function ExperimentStudioPage() {
         </div>
       )}
     </div>
+  );
+}
+export default function ExperimentStudioPage() {
+  return (
+    <Suspense fallback={<p className="text-sm text-slate-500">Loading study studio...</p>}>
+      <ExperimentStudioContent />
+    </Suspense>
   );
 }
