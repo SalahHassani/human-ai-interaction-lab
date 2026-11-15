@@ -15,7 +15,7 @@ A full-stack research platform for designing controlled human–AI interaction e
 - [x] **Task 04:** Researcher authentication (Argon2id + JWT), RBAC, and demo seed script
 - [x] **Task 05:** Experiment CRUD, conditions, tasks, and immutable version publishing
 - [x] **Task 06:** Participant workflow (invitations, consent gate, persistent random assignment, mock AI chat, ratings, UTC event log)
-- [ ] **Task 07:** Descriptive analytics, data-quality flags, and CSV exports
+- [x] **Task 07:** Descriptive analytics, data-quality flags, and CSV exports
 - [ ] **Task 08:** Next.js researcher & participant web interfaces + full Docker Compose stack
 
 ## Demo Credentials (Seeded)
