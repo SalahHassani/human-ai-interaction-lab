@@ -3,8 +3,8 @@
 A full-stack research platform for designing controlled human–AI interaction experiments, collecting participant responses, logging interactions, and analysing experimental outcomes.
 
 ## Tech Stack
-- **Frontend:** Next.js, React, TypeScript, Tailwind CSS
-- **Backend:** Python 3.12, FastAPI, Pydantic, SQLAlchemy 2.0, Alembic
+- **Frontend:** Next.js (App Router), React, TypeScript, Tailwind CSS
+- **Backend:** Python 3.12, FastAPI, Pydantic, SQLAlchemy 2.0, Alembic, Pandas, Pytest
 - **Database:** PostgreSQL 16
 - **Infrastructure:** Docker & Docker Compose
 
@@ -15,16 +15,19 @@ A full-stack research platform for designing controlled human–AI interaction e
 - [x] **Task 04:** Researcher authentication (Argon2id + JWT), RBAC, and demo seed script
 - [x] **Task 05:** Experiment CRUD, conditions, tasks, and immutable version publishing
 - [x] **Task 06:** Participant workflow (invitations, consent gate, persistent random assignment, mock AI chat, ratings, UTC event log)
-- [x] **Task 07:** Descriptive analytics, data-quality flags, and CSV exports
-- [ ] **Task 08:** Next.js researcher & participant web interfaces + full Docker Compose stack
+- [x] **Task 07:** Descriptive analytics, data-quality flags, safe CSV exports, and automated Pytest suite
+- [x] **Task 08:** Next.js researcher & participant web interfaces + full Docker Compose stack
 
 ## Demo Credentials (Seeded)
 - **Email:** `researcher@hailab.org`
 - **Password:** `Researcher123!`
 
-## Quick Local Setup
-1. Start PostgreSQL: `docker compose up -d db`
-2. Activate Python environment: `.\backend\.venv\Scripts\Activate.ps1`
-3. Run migrations: `cd backend && alembic upgrade head && cd ..`
-4. Seed demo data: `python database\seed\seed_demo.py`
-5. Start API: `cd backend && uvicorn app.main:app --reload --port 8000`
+## Running Locally (Development)
+1. **Start PostgreSQL:** `docker compose up -d db`
+2. **Backend API:**
+   ```powershell
+   cd backend
+   .\.venv\Scripts\Activate.ps1
+   alembic upgrade head
+   python ..\database\seed\seed_demo.py
+   uvicorn app.main:app --reload --port 8000
